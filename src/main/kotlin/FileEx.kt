@@ -2,59 +2,59 @@ import io.vertx.core.buffer.Buffer
 import io.vertx.core.file.*
 import io.vertx.kotlin.coroutines.awaitResult
 
-suspend fun FileSystem.copy(from:String, to:String, option:CopyOptions = CopyOptions())
+suspend fun FileSystem.acopy(from:String, to:String, option:CopyOptions = CopyOptions())
         = awaitResult<Void> { copy(from, to, it) }
-suspend fun FileSystem.copyRecursive(from: String, to: String, recursive:Boolean=true)
+suspend fun FileSystem.acopyRecursive(from: String, to: String, recursive:Boolean=true)
         = awaitResult<Void> { copyRecursive(from, to, recursive, it) }
-suspend fun FileSystem.move(from:String, to:String, option:CopyOptions = CopyOptions())
+suspend fun FileSystem.amove(from:String, to:String, option:CopyOptions = CopyOptions())
         = awaitResult<Void> { move(from, to, it) }
-suspend fun FileSystem.truncate(path:String, len:Long)
+suspend fun FileSystem.atruncate(path:String, len:Long)
         = awaitResult<Void> { truncate(path, len, it) }
-suspend fun FileSystem.chmod(path:String, perm:String)
+suspend fun FileSystem.achmod(path:String, perm:String)
         = awaitResult<Void> { chmod(path, perm, it) }
-suspend fun FileSystem.chmodRecursive(path:String, perm:String, directoryPerm:String)
+suspend fun FileSystem.achmodRecursive(path:String, perm:String, directoryPerm:String)
         = awaitResult<Void> { chmodRecursive(path, perm, directoryPerm, it) }
-suspend fun FileSystem.chown(path:String, user:String?=null, group:String?=null)
+suspend fun FileSystem.achown(path:String, user:String?=null, group:String?=null)
         = awaitResult<Void> { chown(path, user, group, it) }
-suspend fun FileSystem.props(path:String) : FileProps
+suspend fun FileSystem.aprops(path:String) : FileProps
         = awaitResult<FileProps> { props(path, it) }
-suspend fun FileSystem.lprops(path:String) : FileProps
+suspend fun FileSystem.alprops(path:String) : FileProps
         = awaitResult<FileProps> { lprops(path, it) }
-suspend fun FileSystem.link(lin:String, path: String)
+suspend fun FileSystem.alink(lin:String, path: String)
         = awaitResult<Void> { link(lin, path, it) }
-suspend fun FileSystem.symlink(lin:String, path: String)
+suspend fun FileSystem.asymlink(lin:String, path: String)
         = awaitResult<Void> { symlink(lin, path, it) }
-suspend fun FileSystem.unlink(path:String)
+suspend fun FileSystem.aunlink(path:String)
         = awaitResult<Void> { unlink(path, it) }
-suspend fun FileSystem.readSymlink(path: String) : String
+suspend fun FileSystem.areadSymlink(path: String) : String
         = awaitResult { readSymlink(path, it) }
-suspend fun FileSystem.delete(path: String)
+suspend fun FileSystem.adelete(path: String)
         = awaitResult<Void> { delete(path, it) }
-suspend fun FileSystem.deleteRecursive(path: String, recursive: Boolean=true)
+suspend fun FileSystem.adeleteRecursive(path: String, recursive: Boolean=true)
         = awaitResult<Void> { deleteRecursive(path, recursive, it) }
-suspend fun FileSystem.mkdir(path: String)
+suspend fun FileSystem.amkdir(path: String)
         = awaitResult<Void> { mkdir(path, it) }
-suspend fun FileSystem.mkdir(path: String, perm: String)
+suspend fun FileSystem.amkdir(path: String, perm: String)
         = awaitResult<Void> { mkdir(path, perm, it) }
-suspend fun FileSystem.mkdirs(path: String)
+suspend fun FileSystem.amkdirs(path: String)
         = awaitResult<Void> { mkdirs(path, it) }
-suspend fun FileSystem.mkdirs(path: String, perm: String)
+suspend fun FileSystem.amkdirs(path: String, perm: String)
         = awaitResult<Void> { mkdirs(path, perm, it) }
-suspend fun FileSystem.readDir(path: String):List<String>
+suspend fun FileSystem.areadDir(path: String):List<String>
         = awaitResult { readDir(path, it) }
-suspend fun FileSystem.readDir(path: String, filter:String):List<String>
+suspend fun FileSystem.areadDir(path: String, filter:String):List<String>
         = awaitResult { readDir(path, filter, it) }
-suspend fun FileSystem.readFile(path: String): Buffer
+suspend fun FileSystem.areadFile(path: String): Buffer
         = awaitResult { readFile(path, it) }
-suspend fun FileSystem.writeFile(path: String, buffer: Buffer)
+suspend fun FileSystem.awriteFile(path: String, buffer: Buffer)
         = awaitResult<Void> { writeFile(path, buffer, it) }
-suspend fun FileSystem.open(path: String, option:OpenOptions = OpenOptions()):AsyncFile
+suspend fun FileSystem.aopen(path: String, option:OpenOptions = OpenOptions()):AsyncFile
         = awaitResult { open(path, option, it) }
-suspend fun FileSystem.createFile(path: String)
+suspend fun FileSystem.acreateFile(path: String)
         = awaitResult<Void> { createFile(path, it) }
-suspend fun FileSystem.createFile(path: String, perm: String)
+suspend fun FileSystem.acreateFile(path: String, perm: String)
         = awaitResult<Void> { createFile(path, perm, it) }
-suspend fun FileSystem.exists(path: String):Boolean
+suspend fun FileSystem.aexists(path: String):Boolean
         = awaitResult<Boolean> { exists(path, it) }
-suspend fun FileSystem.fsProps(path: String):FileSystemProps
+suspend fun FileSystem.afsProps(path: String):FileSystemProps
         = awaitResult<FileSystemProps> { fsProps(path, it) }
